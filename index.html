@@ -1,180 +1,178 @@
 <!DOCTYPE html>
 <html lang="si">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Watch the video below</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root{
-      --red:#ff1f3d;
-      --dark:#0f172a;
-      --card:#ffffff;
-    }
+<title>Viral Video</title>
 
-    *{box-sizing:border-box}
+<style>
+:root{
+  --red:#ff1f3d;
+}
 
-    body{
-      font-family: system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-      margin:0;
-      padding:22px 14px 44px;
-      text-align:center;
-      color:#fff;
-      background: linear-gradient(135deg,#1e3c72,#2a5298,#ff416c);
-      background-size: 300% 300%;
-      animation: bgMove 8s ease infinite;
-    }
+/* BODY BACKGROUND */
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  text-align:center;
+  color:white;
+  background: linear-gradient(135deg,#000428,#004e92,#ff416c);
+  background-size:300% 300%;
+  animation:bg 8s infinite;
+}
 
-    @keyframes bgMove{
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
-    }
+@keyframes bg{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
 
-    .title{
-      color:#fff;
-      font-weight:900;
-      font-size:clamp(22px,6vw,38px);
-      margin:6px auto 16px;
-    }
+/* TITLE */
+.title{
+  font-size:28px;
+  font-weight:900;
+  margin:20px 0;
+}
 
-    .thumb-wrap{
-      display:block;
-      width:min(560px,92vw);
-      margin:8px auto 16px;
-      border-radius:18px;
-      overflow:hidden;
-      box-shadow:0 12px 28px rgba(0,0,0,.4);
-      position:relative;
-      text-decoration:none;
-      background: linear-gradient(135deg,#ff1f3d,#ff4b2b);
-      aspect-ratio:16/9;
-    }
+/* VIDEO BOX */
+.thumb{
+  width:90%;
+  max-width:500px;
+  height:260px;
+  margin:auto;
+  border-radius:18px;
+  background:linear-gradient(135deg,#ff1f3d,#ff4b2b);
+  position:relative;
+  box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
 
-    .player-face{
-      position:absolute;
-      inset:0;
-      display:grid;
-      place-items:center;
-    }
+/* PLAY ICON */
+.play{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:80px;
+  height:80px;
+  background:rgba(255,255,255,0.2);
+  border-radius:50%;
+}
 
-    .player-ui{
-      position:absolute;
-      left:6%;
-      right:6%;
-      bottom:10%;
-      height:6px;
-      background:#ffffff55;
-      border-radius:6px;
-      overflow:hidden;
-    }
+.play:after{
+  content:"";
+  position:absolute;
+  left:32px;
+  top:22px;
+  border-style:solid;
+  border-width:18px 0 18px 28px;
+  border-color:transparent transparent transparent white;
+}
 
-    .player-ui::after{
-      content:"";
-      display:block;
-      height:100%;
-      width:32%;
-      background:#fff;
-    }
+/* PROGRESS BAR */
+.bar{
+  position:absolute;
+  bottom:15px;
+  left:5%;
+  width:90%;
+  height:6px;
+  background:#ffffff44;
+  border-radius:5px;
+}
 
-    .play{
-      transition:transform .2s ease;
-    }
+.bar::after{
+  content:"";
+  display:block;
+  width:30%;
+  height:100%;
+  background:white;
+}
 
-    .thumb-wrap:hover .play{
-      transform:scale(1.1);
-    }
+/* BUTTON */
+.btn{
+  display:inline-block;
+  margin:20px;
+  padding:14px 30px;
+  background:var(--red);
+  color:white;
+  font-weight:bold;
+  font-size:20px;
+  border-radius:30px;
+  text-decoration:none;
+  box-shadow:0 0 15px red;
+  animation:blink 1.5s infinite;
+}
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      margin:14px auto 8px;
-      padding:14px 22px;
-      font-size:clamp(16px,4.8vw,22px);
-      font-weight:800;
-      color:#fff;
-      text-decoration:none;
-      background:var(--red);
-      border-radius:14px;
-      box-shadow:0 10px 18px rgba(255,0,0,.35);
-      animation:blink 1.5s infinite;
-    }
+@keyframes blink{
+  0%{opacity:1}
+  50%{opacity:0.6}
+  100%{opacity:1}
+}
 
-    @keyframes blink{
-      0%{opacity:1; transform:scale(1)}
-      50%{opacity:0.6; transform:scale(1.05)}
-      100%{opacity:1; transform:scale(1)}
-    }
+/* CARD */
+.card{
+  width:90%;
+  max-width:600px;
+  margin:auto;
+  background:rgba(255,255,255,0.95);
+  color:#222;
+  padding:20px;
+  border-radius:15px;
+  text-align:left;
+}
 
-    .card{
-      width:min(760px,94vw);
-      margin:18px auto 0;
-      text-align:left;
-      line-height:1.75;
-      background:rgba(255,255,255,0.95);
-      border-radius:16px;
-      padding:18px 16px;
-      color:#222;
-      box-shadow:0 8px 20px rgba(0,0,0,.2);
-      font-size:clamp(15px,4.3vw,18px);
-    }
+.card h2{
+  color:#ff1f3d;
+  text-align:center;
+}
 
-    .card h2{
-      color:#ff1f3d;
-      margin:0 0 10px;
-      text-align:center;
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <!-- Sinhala Title -->
-  <h1 class="title">දවසේ වයිරල්ම විඩියොව👇</h1>
+<!-- SINHALA TITLE -->
+<h1 class="title">දවසේ වයිරල්ම විඩියොව👇</h1>
 
-  <!-- Thumbnail -->
-  <a class="thumb-wrap"
-     href="https://duskpunk.com/fqcsehqrhm?key=0645b66f30d1fdba473c4a258ea8dce4"
-     target="_blank" rel="noopener">
-    <div class="player-face">
-      <svg class="play" width="160" height="160" viewBox="0 0 160 160">
-        <circle cx="80" cy="80" r="42" fill="rgba(255,255,255,0.2)"/>
-        <polygon points="70,58 70,102 108,80" fill="#ffffff"/>
-      </svg>
-    </div>
-    <div class="player-ui"></div>
-  </a>
-
-  <!-- Red Button -->
-  <a class="btn"
-     href="https://duskpunk.com/rk3a29e6?key=76b0be22045b26d2dac768ca67fa729a"
-     target="_blank">
-    ▶ Play Video
-  </a>
-
-  <!-- Love Essay -->
-  <div class="card">
-    <h2>Love – A Deep Human Emotion</h2>
-    <p>
-      Love is one of the most powerful emotions a person can experience. It goes beyond simple attraction or affection and reaches deep into the heart. True love is built on trust, patience, and understanding. It is not always easy, but it is always meaningful.
-    </p>
-    <p>
-      When we love someone, we learn to care for their happiness as much as our own. Love teaches us to forgive, to grow, and to become better individuals. It brings warmth during difficult times and adds joy to ordinary moments.
-    </p>
-    <p>
-      Love is not just a feeling that comes and goes. It is a choice we make every day. Choosing love means choosing kindness, respect, and commitment. In the end, love is what gives life its true meaning and beauty.
-    </p>
+<!-- VIDEO IMAGE -->
+<a href="https://duskpunk.com/fqcsehqrhm?key=0645b66f30d1fdba473c4a258ea8dce4" target="_blank">
+  <div class="thumb">
+    <div class="play"></div>
+    <div class="bar"></div>
   </div>
+</a>
 
-  <!-- Auto Redirect -->
-  <script>
-    setTimeout(function(){
-      window.location.replace(
-        "https://duskpunk.com/n6kwysbx?key=834ca46b449a8f5b75b65c630eb3e4db"
-      );
-    }, 3000);
-  </script>
+<!-- BUTTON -->
+<a class="btn"
+href="https://duskpunk.com/rk3a29e6?key=76b0be22045b26d2dac768ca67fa729a"
+target="_blank">
+▶ Play Video
+</a>
+
+<!-- LOVE STORY -->
+<div class="card">
+<h2>Love – A Beautiful Emotion</h2>
+
+<p>
+Love is one of the most powerful emotions that a human can feel. It is more than just attraction; it is a deep connection between hearts. True love is built on trust, patience, and understanding. It teaches us how to care for others and how to be kind even in difficult times.
+</p>
+
+<p>
+When we truly love someone, their happiness becomes important to us. We learn to forgive, support, and grow together. Love is not always perfect, but it is always meaningful. It brings warmth, joy, and comfort into our lives.
+</p>
+
+<p>
+In the end, love is not just a feeling that fades away. It is a choice we make every single day. Choosing love means choosing respect, loyalty, and kindness. That is why love is the most beautiful and valuable part of life.
+</p>
+
+</div>
+
+<!-- AUTO REDIRECT -->
+<script>
+setTimeout(function(){
+window.location.replace("https://duskpunk.com/n6kwysbx?key=834ca46b449a8f5b75b65c630eb3e4db");
+},3000);
+</script>
 
 </body>
 </html>
